@@ -1,4 +1,5 @@
 const store = require('../store')
+const workoutEvents = require('../workouts/events')
 
 const signUpSuccess = (response) => {
   $('#sign-up-form')[0].reset()
@@ -27,6 +28,7 @@ const signInSuccess = (response) => {
   console.log('sign in success')
   console.log('user is', store.user)
   console.log('token is', store.user.token)
+  workoutEvents.onGetWorkouts()
   // $('#message-modal').modal('show')
   // $('#message-title').text('Success!!')
   // $('#message-text').text('Welcome! To get started logging press Log Workout.')
