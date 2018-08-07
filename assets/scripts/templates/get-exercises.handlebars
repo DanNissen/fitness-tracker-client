@@ -1,0 +1,10 @@
+{{#each object as |exercises|}}
+{{#each exercises as |exercise|}}
+{{log this}}
+<div class="col-md-4 col-sm-6">
+  <h2>{{exercise.name}}</h2>
+  <p>{{exercise.description}}</p>
+  <p>{{exercise.link}}</p>
+</div>
+{{/each}}
+{{/each}}
