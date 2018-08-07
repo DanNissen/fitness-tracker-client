@@ -57,11 +57,30 @@ const changePasswordError = (response) => {
   $('#message-text').text('Something has gone wrong, please try again. Are you sure you entered your password correctly?')
 }
 
+const signOutSuccess = () => {
+  console.log('sign out success')
+  $('.signed-in').css('visibility', 'hidden')
+  $('.signed-out').css('visibility', 'visible')
+  $('.view-accomplishments').empty()
+  $('#message-modal').modal('show')
+  $('#message-title').text('Goodbye!!')
+  $('#message-text').text('Come back soon to keep tracking your success!')
+}
+
+const signOutError = (response) => {
+  console.log('sign out failed!!!', response.responseText)
+  $('#message-modal').modal('show')
+  $('#message-title').text('Uh Oh!!')
+  $('#message-text').text('Something has gone wrong, please try again.')
+}
+
 module.exports = {
   signUpSuccess,
   signUpError,
   signInSuccess,
   signInError,
   changePasswordSuccess,
-  changePasswordError
+  changePasswordError,
+  signOutSuccess,
+  signOutError
 }
