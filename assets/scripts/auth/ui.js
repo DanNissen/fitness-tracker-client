@@ -22,14 +22,14 @@ const signInSuccess = (response) => {
   store.signed_in = true
   $('#sign-in-form')[0].reset()
   $('#sign-in-modal').modal('hide')
-  $('.signed-in').css('visibility', 'visible')
-  $('.signed-out').css('visibility', 'hidden')
+  $('.signed-in-visible').css('display', 'block')
+  $('.signed-out-visible').css('display', 'none')
   console.log('sign in success')
   console.log('user is', store.user)
   console.log('token is', store.user.token)
-  $('#message-modal').modal('show')
-  $('#message-title').text('Success!!')
-  $('#message-text').text('Welcome! To get started logging press Log Workout.')
+  // $('#message-modal').modal('show')
+  // $('#message-title').text('Success!!')
+  // $('#message-text').text('Welcome! To get started logging press Log Workout.')
 }
 
 const signInError = (response) => {
@@ -59,12 +59,12 @@ const changePasswordError = (response) => {
 
 const signOutSuccess = () => {
   console.log('sign out success')
-  $('.signed-in').css('visibility', 'hidden')
-  $('.signed-out').css('visibility', 'visible')
-  $('.view-accomplishments').empty()
-  $('#message-modal').modal('show')
-  $('#message-title').text('Goodbye!!')
-  $('#message-text').text('Come back soon to keep tracking your success!')
+  $('.signed-in-visible').css('display', 'none')
+  $('.signed-out-visible').css('display', 'block')
+  // $('.view-accomplishments').empty()
+  // $('#message-modal').modal('show')
+  // $('#message-title').text('Goodbye!!')
+  // $('#message-text').text('Come back soon to keep tracking your success!')
 }
 
 const signOutError = (response) => {
