@@ -40,9 +40,28 @@ const signInError = (response) => {
   $('#message-text').text('Something has gone wrong, please try again.')
 }
 
+const changePasswordSuccess = (response) => {
+  $('#change-password-form')[0].reset()
+  $('#change-pw-modal').modal('hide')
+  console.log('change password success')
+  $('#message-modal').modal('show')
+  $('#message-title').text('Success!!')
+  $('#message-text').text(`You have successfully changed your password, please don't forget it!`)
+}
+
+const changePasswordError = (response) => {
+  $('#change-password-form')[0].reset()
+  console.log('change password failed!!!')
+  $('#message-modal').modal('show')
+  $('#message-title').text('Uh Oh!!')
+  $('#message-text').text('Something has gone wrong, please try again. Are you sure you entered your password correctly?')
+}
+
 module.exports = {
   signUpSuccess,
   signUpError,
   signInSuccess,
-  signInError
+  signInError,
+  changePasswordSuccess,
+  changePasswordError
 }
