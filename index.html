@@ -30,16 +30,16 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a data-toggle="modal" data-target="#sign-up-modal">Sign Up</a>
+            <a class="signed-out-visible" data-toggle="modal" data-target="#sign-up-modal">Sign Up</a>
           </li>
           <li>
-            <a data-toggle="modal" data-target="#sign-in-modal">Sign In</a>
+            <a class="signed-out-visible" data-toggle="modal" data-target="#sign-in-modal">Sign In</a>
           </li>
           <li>
-            <a data-toggle="modal" data-target="#change-pw-modal">Change Password</a>
+            <a class="signed-in-visible" style="display: none;" data-toggle="modal" data-target="#change-pw-modal">Change Password</a>
           </li>
           <li>
-            <a id="sign-out">Sign Out</a>
+            <a class="signed-in-visible" style="display: none;" id="sign-out">Sign Out</a>
           </li>
         </ul>
       </div>
@@ -47,8 +47,9 @@
     </div>
     <!-- /.container -->
   </nav>
+
   <!-- Header Carousel -->
-  <header id="myCarousel" class="carousel slide">
+  <header id="myCarousel" class="carousel slide signed-out-visible">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -86,6 +87,23 @@
             <span class="icon-next"></span>
         </a>
   </header>
+  <!-- Signed in user info -->
+  <div class="container signed-in-visible" style="display: none;">
+    <div class="col-lg-12">
+      <h2 class="page-header">Welcome!</h2>
+    </div>
+    <div id="user-container" class="row">
+
+    </div>
+  </div>
+  <div class="container signed-in-visible" style="display: none;">
+    <div class="col-lg-12">
+      <h2 class="page-header">Logged Workouts</h2>
+    </div>
+    <div id="workouts-container" class="row">
+
+    </div>
+  </div>
   <!-- Page Content -->
   <div class="container">
     <!-- Portfolio Section -->
@@ -98,7 +116,7 @@
     <!-- /.row -->
 
     <!-- About Section -->
-    <div id="about" class="row">
+    <div id="about" class="row signed-out-visible">
       <div class="col-lg-12">
         <h2 class="page-header">About Joey</h2>
       </div>
@@ -124,7 +142,7 @@
     <hr>
 
     <!-- Call to Action Section -->
-    <div class="well">
+    <div class="well signed-out-visible">
       <div class="row">
         <div class="col-md-8">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
