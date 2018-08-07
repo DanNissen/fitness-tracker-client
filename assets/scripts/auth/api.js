@@ -9,15 +9,16 @@ const signUp = (data) => {
     data: data
   })
 }
-//
-// const signIn = (data) => {
-//   return $.ajax({
-//     method: 'POST',
-//     url: config.apiUrl + '/sign-in',
-//     data: data
-//   })
-// }
-//
+
+const signIn = (data) => {
+  console.log('api sign in data is:', data)
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/sign-in',
+    data: data
+  })
+}
+
 // const changePassword = (data) => {
 //   // console.log('token is', store.user.token)
 //   return $.ajax({
@@ -41,8 +42,8 @@ const signUp = (data) => {
 // }
 
 module.exports = {
-  signUp
-  // signIn,
+  signUp,
+  signIn
   // changePassword,
   // signOut
 }
