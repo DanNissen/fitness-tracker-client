@@ -1,5 +1,5 @@
 const config = require('../config')
-// const store = require('../store')
+const store = require('../store')
 
 const signUp = (data) => {
   console.log('api sign up data is:', data)
@@ -19,18 +19,18 @@ const signIn = (data) => {
   })
 }
 
-// const changePassword = (data) => {
-//   // console.log('token is', store.user.token)
-//   return $.ajax({
-//     method: 'PATCH',
-//     url: config.apiUrl + '/change-password',
-//     data: data,
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
-//
+const changePassword = (data) => {
+  console.log('token is', store.user.token)
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/change-password',
+    data: data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 // const signOut = () => {
 //   return $.ajax({
 //     method: 'DELETE',
@@ -43,7 +43,7 @@ const signIn = (data) => {
 
 module.exports = {
   signUp,
-  signIn
-  // changePassword,
+  signIn,
+  changePassword
   // signOut
 }
