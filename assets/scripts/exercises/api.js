@@ -31,8 +31,22 @@ const updateExercise = (data, id) => {
   })
 }
 
+const deleteExercise = (data) => {
+  console.log('id is:', data)
+  const url = config.apiUrl + '/exercises/' + data
+  console.log('url is:', url)
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/exercises/' + data
+    // headers: {
+    //   Authorization: 'Token token=' + store.user.token
+    // }
+  })
+}
+
 module.exports = {
   getExercises,
   createExercise,
-  updateExercise
+  updateExercise,
+  deleteExercise
 }

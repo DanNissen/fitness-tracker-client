@@ -6,7 +6,7 @@
       <p>{{exercise.description}}</p>
       <iframe src="{{exercise.link}}" alt="{{exercise.id}}"></iframe>
       <button style="display: none;" data-id={{exercise.id}} type="button" class="btn btn-primary btn-block signed-in-visible" data-toggle="modal" data-target="#update-exercise-modal-{{exercise.id}}">Update</button>
-      <button style="display: none;" data-id={{exercise.id}} type="button" class="btn btn-danger btn-block signed-in-visible">Delete</button>
+      <button style="display: none;" data-id={{exercise.id}} type="button" class="btn btn-danger btn-block signed-in-visible" data-toggle="modal" data-target="#delete-exercise-modal-{{exercise.id}}">Delete</button>
     </div>
   {{/each}}
 {{/each}}
@@ -48,3 +48,27 @@
 </div>
 {{/each}}
 {{/each}}
+
+{{#each object as |exercises|}}
+  {{#each exercises as |exercise|}}
+  <!-- delete exercise modal -->
+      <div id="delete-exercise-modal-{{exercise.id}}" class="exercise-modal-handlebars exercise-modal delete-exercise modal delete-exercise-modal-{{exercise.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteExercise" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">Are you sure you want to Delete?!</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form data-id={{exercise.id}} class="delete-exercise-form">
+              <div class="modal-body">
+                <!-- delete button -->
+                <button data-id={{exercise.id}} type="submit" class="btn btn-primary">Yes, delete</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  {{/each}}
+  {{/each}}

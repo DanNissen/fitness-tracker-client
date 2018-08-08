@@ -18,4 +18,6 @@ $(() => {
   $('#create-exercise-form').on('submit', exerciseEvents.onCreateExercise)
   $('.workouts-container').on('submit', '.update-workout-form', workoutEvents.onUpdateWorkout)
   $('.exercise-container').on('submit', '.update-exercise-form', exerciseEvents.onUpdateExercise)
+  $('.workouts-container').on('submit', '.delete-workout-form', workoutEvents.onDeleteWorkout)
+  $('.exercise-container').on('submit', '.delete-exercise-form', exerciseEvents.onDeleteExercise)
 })
