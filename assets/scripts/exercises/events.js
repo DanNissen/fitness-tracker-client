@@ -18,7 +18,19 @@ const onCreateExercise = (event) => {
     .catch(exerciseUi.createExerciseError)
 }
 
+const onUpdateExercise = (event) => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  const id = $(event.target).data('id')
+  console.log('data is', data)
+  console.log('id is', id)
+  exerciseApi.updateExercise(data, id)
+    .then(exerciseUi.updateExerciseSuccess)
+    .catch(exerciseUi.updateExerciseError)
+}
+
 module.exports = {
   onGetExercises,
-  onCreateExercise
+  onCreateExercise,
+  onUpdateExercise
 }
