@@ -9,6 +9,16 @@ const getExercises = () => {
   })
 }
 
+const createExercise = (data) => {
+  console.log('data passed to api is', data)
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/exercises',
+    data: data
+  })
+}
+
 module.exports = {
-  getExercises
+  getExercises,
+  createExercise
 }

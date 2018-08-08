@@ -1,5 +1,6 @@
 // const store = require('../store')
 const showExercisesTemplate = require('../templates/get-exercises.handlebars')
+const exerciseApi = require('./api')
 
 const getExercisesSuccess = (data) => {
   console.log('got exercises', data)
@@ -17,7 +18,29 @@ const getExercisesError = (response) => {
   console.log('could not get exercises')
 }
 
+const createExerciseSuccess = (response) => {
+  $('#create-exercise-form')[0].reset()
+  $('#create-exercise-modal').modal('hide')
+  console.log('Exercise logged!')
+  $('#message-modal').modal('show')
+  $('#message-title').text('Success!!')
+  $('#message-text').text(`You have successfully logged your exercise!`)
+  exerciseApi.getExercises()
+    .then(getExercisesSuccess)
+    .catch(getExercisesError)
+}
+
+const createExerciseError = (response) => {
+  $('#create-exercise-form')[0].reset()
+  console.log('exercise not logged properly!!!')
+  $('#message-modal').modal('show')
+  $('#message-title').text('Uh Oh!!')
+  $('#message-text').text('Something has gone wrong, your exercise could not be created.')
+}
+
 module.exports = {
   getExercisesSuccess,
-  getExercisesError
+  getExercisesError,
+  createExerciseSuccess,
+  createExerciseError
 }

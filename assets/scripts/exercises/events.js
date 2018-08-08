@@ -1,4 +1,4 @@
-// const getFormFields = require('../../../lib/get-form-fields')
+const getFormFields = require('../../../lib/get-form-fields')
 const exerciseApi = require('./api')
 const exerciseUi = require('./ui')
 
@@ -9,6 +9,16 @@ const onGetExercises = (event) => {
     .catch(exerciseUi.getExercisesError)
 }
 
+const onCreateExercise = (event) => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log('data is', data)
+  exerciseApi.createExercise(data)
+    .then(exerciseUi.createExerciseSuccess)
+    .catch(exerciseUi.createExerciseError)
+}
+
 module.exports = {
-  onGetExercises
+  onGetExercises,
+  onCreateExercise
 }

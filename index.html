@@ -335,20 +335,16 @@
           <!-- create exercise form -->
             <form id="create-exercise-form">
               <div class="form-group">
-                <label>Date Accomplished</label>
-                <input name="exercise[date]" type="date" class="form-control" id="exercise-dateInput">
+                <label>Exercise Name</label>
+                <input name="exercise[name]" type="text" class="form-control" placeholder="Name">
               </div>
               <div class="form-group">
-                <label>Select Exercise</label>
-                <select name="exercise[exercise_id]" class="form-control">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                </select>
+                <label>Exercise Description</label>
+                <input name="exercise[description]" type="text" class="form-control" placeholder="Description">
               </div>
               <div class="form-group">
-                <label>Tempo</label>
-                <input name="exercise[tempo]" type="text" class="form-control" placeholder="Tempo">
+                <label>Link to image or video</label>
+                <input name="exercise[link]" type="text" class="form-control" placeholder="Link">
               </div>
               <button type="submit" class="btn btn-primary">Log Exercise</button>
             </form>

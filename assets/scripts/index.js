@@ -15,4 +15,5 @@ $(() => {
   $('#change-password-form').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#create-workout-form').on('submit', workoutEvents.onCreateWorkout)
+  $('#create-exercise-form').on('submit', exerciseEvents.onCreateExercise)
 })
