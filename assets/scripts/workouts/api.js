@@ -12,6 +12,20 @@ const getWorkouts = () => {
   })
 }
 
+const createWorkout = (data) => {
+  console.log('data passed to api is', data)
+  console.log('user is', store.user.email)
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/workouts',
+    data: data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
-  getWorkouts
+  getWorkouts,
+  createWorkout
 }
