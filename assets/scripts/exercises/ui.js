@@ -63,11 +63,31 @@ const updateExerciseError = (response) => {
   $('#message-text').text('Something has gone wrong, your exercise could not be updated.')
 }
 
+const deleteExerciseSuccess = (response) => {
+  console.log('Exercise deleted!', response)
+  $('.delete-exercise').modal('hide')
+  // $('#message-modal').modal('show')
+  // $('#message-title').text('Success!!')
+  // $('#message-text').text(`You have successfully deleted your exercise!`)
+  exerciseApi.getExercises()
+    .then(getExercisesSuccess)
+    .catch(getExercisesError)
+}
+
+const deleteExerciseError = (response) => {
+  console.log('exercise not deleted properly!!!', response.responseText)
+  $('#message-modal').modal('show')
+  $('#message-title').text('Uh Oh!!')
+  $('#message-text').text('Something has gone wrong, your exercise could not be deleted. Please try again.')
+}
+
 module.exports = {
   getExercisesSuccess,
   getExercisesError,
   createExerciseSuccess,
   createExerciseError,
   updateExerciseSuccess,
-  updateExerciseError
+  updateExerciseError,
+  deleteExerciseSuccess,
+  deleteExerciseError
 }

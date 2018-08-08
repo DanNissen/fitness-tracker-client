@@ -29,8 +29,18 @@ const onUpdateExercise = (event) => {
     .catch(exerciseUi.updateExerciseError)
 }
 
+const onDeleteExercise = (event) => {
+  event.preventDefault()
+  const data = $(event.target).data('id')
+  console.log('id is', data)
+  exerciseApi.deleteExercise(data)
+    .then(exerciseUi.deleteExerciseSuccess)
+    .catch(exerciseUi.deleteExerciseError)
+}
+
 module.exports = {
   onGetExercises,
   onCreateExercise,
-  onUpdateExercise
+  onUpdateExercise,
+  onDeleteExercise
 }

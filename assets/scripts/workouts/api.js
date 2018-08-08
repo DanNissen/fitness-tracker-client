@@ -38,8 +38,22 @@ const updateWorkout = (data, id) => {
   })
 }
 
+const deleteWorkout = (data) => {
+  console.log('id is:', data)
+  const url = config.apiUrl + '/workouts/' + data
+  console.log('url is:', url)
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/workouts/' + data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   getWorkouts,
   createWorkout,
-  updateWorkout
+  updateWorkout,
+  deleteWorkout
 }

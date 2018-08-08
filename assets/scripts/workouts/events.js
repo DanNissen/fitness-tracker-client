@@ -29,8 +29,18 @@ const onUpdateWorkout = (event) => {
     .catch(workoutUi.updateWorkoutError)
 }
 
+const onDeleteWorkout = (event) => {
+  event.preventDefault()
+  const data = $(event.target).data('id')
+  console.log('id is', data)
+  workoutApi.deleteWorkout(data)
+    .then(workoutUi.deleteWorkoutSuccess)
+    .catch(workoutUi.deleteWorkoutError)
+}
+
 module.exports = {
   onGetWorkouts,
   onCreateWorkout,
-  onUpdateWorkout
+  onUpdateWorkout,
+  onDeleteWorkout
 }

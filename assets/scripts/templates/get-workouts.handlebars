@@ -22,7 +22,7 @@
               <td>{{workout.reps}}</td>
               <td>{{workout.rest_in_seconds}}</td>
               <td><button data-id={{workout.id}} type="button" class="btn btn-primary" data-toggle="modal" data-target="#update-workout-modal-{{workout.id}}">Update</button></td>
-              <td><button data-id={{workout.id}} type="button" class="btn btn-danger">Delete</button></td>
+              <td><button data-id={{workout.id}} type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-workout-modal-{{workout.id}}">Delete</button></td>
         </tr>
       {{/each}}
     {{/each}}
@@ -80,3 +80,27 @@
 </div>
 {{/each}}
 {{/each}}
+
+{{#each object as |workouts|}}
+  {{#each workouts as |workout|}}
+  <!-- delete workout modal -->
+      <div id="delete-workout-modal-{{workout.id}}" class="workout-modal-handlebars workout-modal delete-workout modal delete-workout-modal-{{workout.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteWorkout" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">Are you sure you want to Delete?!</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form data-id={{workout.id}} class="delete-workout-form">
+              <div class="modal-body">
+                <!-- delete button -->
+                <button data-id={{workout.id}} type="submit" class="btn btn-primary">Yes, delete</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  {{/each}}
+  {{/each}}

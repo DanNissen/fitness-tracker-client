@@ -43,9 +43,9 @@ const updateWorkoutSuccess = (response) => {
   console.log('Workout updated!', response)
   $('.update-workout-form')[0].reset()
   $('.update-workout-modal').modal('hide')
-  $('#message-modal').modal('show')
-  $('#message-title').text('Success!!')
-  $('#message-text').text(`You have successfully updated your workout!`)
+  // $('#message-modal').modal('show')
+  // $('#message-title').text('Success!!')
+  // $('#message-text').text(`You have successfully updated your workout!`)
   workoutApi.getWorkouts()
     .then(getWorkoutsSuccess)
     .catch(getWorkoutsError)
@@ -59,11 +59,31 @@ const updateWorkoutError = (response) => {
   $('#message-text').text('Something has gone wrong, your workout could not be updated.')
 }
 
+const deleteWorkoutSuccess = (response) => {
+  console.log('Workout deleted!', response)
+  $('.delete-workout').modal('hide')
+  // $('#message-modal').modal('show')
+  // $('#message-title').text('Success!!')
+  // $('#message-text').text(`You have successfully deleted your workout!`)
+  workoutApi.getWorkouts()
+    .then(getWorkoutsSuccess)
+    .catch(getWorkoutsError)
+}
+
+const deleteWorkoutError = (response) => {
+  console.log('workout not deleted properly!!!', response.responseText)
+  $('#message-modal').modal('show')
+  $('#message-title').text('Uh Oh!!')
+  $('#message-text').text('Something has gone wrong, your workout could not be deleted. Please try again.')
+}
+
 module.exports = {
   getWorkoutsSuccess,
   getWorkoutsError,
   createWorkoutSuccess,
   createWorkoutError,
   updateWorkoutSuccess,
-  updateWorkoutError
+  updateWorkoutError,
+  deleteWorkoutSuccess,
+  deleteWorkoutError
 }
