@@ -24,6 +24,7 @@ const signInSuccess = (response) => {
   $('#sign-in-form')[0].reset()
   $('#sign-in-modal').modal('hide')
   $('.signed-in-visible').css('display', 'block')
+  $('.exercise-button').css('display', 'inline')
   $('.signed-out-visible').css('display', 'none')
   console.log('sign in success')
   console.log('user is', store.user)
