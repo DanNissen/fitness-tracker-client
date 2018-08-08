@@ -5,6 +5,46 @@
       <h2>{{exercise.id}} {{exercise.name}}</h2>
       <p>{{exercise.description}}</p>
       <iframe src="{{exercise.link}}" alt="{{exercise.id}}"></iframe>
+      <button style="display: none;" data-id={{exercise.id}} type="button" class="btn btn-primary btn-block signed-in-visible" data-toggle="modal" data-target="#update-exercise-modal-{{exercise.id}}">Update</button>
+      <button style="display: none;" data-id={{exercise.id}} type="button" class="btn btn-danger btn-block signed-in-visible">Delete</button>
     </div>
   {{/each}}
+{{/each}}
+
+{{#each object as |exercises|}}
+  {{#each exercises as |exercise|}}
+<!-- Update Exercise Modal -->
+<div id="update-exercise-modal-{{exercise.id}}" class="modal update-exercise-modal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Update Exercise</h4>
+      </div>
+      <div class="modal-body">
+        <!-- update exercise form -->
+          <form id="update-exercise-form-{{exercise.id}}" data-id={{exercise.id}} class="update-exercise-form">
+            <div class="form-group">
+              <label>Exercise Name</label>
+              <input value="{{exercise.name}}"
+              name="exercise[name]" type="text" class="form-control" placeholder="Name">
+            </div>
+            <div class="form-group">
+              <label>Exercise Description</label>
+              <input value="{{exercise.description}}" name="exercise[description]" type="text" class="form-control" placeholder="Description">
+            </div>
+            <div class="form-group">
+              <label>Link to image or video</label>
+              <input value="{{exercise.link}}"
+              name="exercise[link]" type="text" class="form-control" placeholder="Link">
+            </div>
+            <button data-id={{exercise.id}}  type="submit" class="btn btn-primary">Update Exercise</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
 {{/each}}

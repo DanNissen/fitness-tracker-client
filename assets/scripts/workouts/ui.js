@@ -38,9 +38,32 @@ const createWorkoutError = (response) => {
   $('#message-text').text('Something has gone wrong, your workout could not be created.')
 }
 
+const updateWorkoutSuccess = (response) => {
+  console.log(response)
+  console.log('Workout updated!', response)
+  $('.update-workout-form')[0].reset()
+  $('.update-workout-modal').modal('hide')
+  $('#message-modal').modal('show')
+  $('#message-title').text('Success!!')
+  $('#message-text').text(`You have successfully updated your workout!`)
+  workoutApi.getWorkouts()
+    .then(getWorkoutsSuccess)
+    .catch(getWorkoutsError)
+}
+
+const updateWorkoutError = (response) => {
+  $('.update-workout-form')[0].reset()
+  console.log('workout not updated properly!!!', response.responseText)
+  $('#message-modal').modal('show')
+  $('#message-title').text('Uh Oh!!')
+  $('#message-text').text('Something has gone wrong, your workout could not be updated.')
+}
+
 module.exports = {
   getWorkoutsSuccess,
   getWorkoutsError,
   createWorkoutSuccess,
-  createWorkoutError
+  createWorkoutError,
+  updateWorkoutSuccess,
+  updateWorkoutError
 }

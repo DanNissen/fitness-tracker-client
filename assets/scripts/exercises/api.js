@@ -18,7 +18,21 @@ const createExercise = (data) => {
   })
 }
 
+const updateExercise = (data, id) => {
+  const url = config.apiUrl + '/exercises/' + id
+  console.log('url is:', url)
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/exercises/' + id,
+    data: data
+    // headers: {
+    //   Authorization: 'Token token=' + store.user.token
+    // }
+  })
+}
+
 module.exports = {
   getExercises,
-  createExercise
+  createExercise,
+  updateExercise
 }
