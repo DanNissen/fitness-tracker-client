@@ -1,5 +1,5 @@
 const config = require('../config')
-// const store = require('../store')
+const store = require('../store')
 
 const getExercises = () => {
   console.log('Getting exercises')
@@ -11,10 +11,14 @@ const getExercises = () => {
 
 const createExercise = (data) => {
   console.log('data passed to api is', data)
+  console.log('user is', store.user.email)
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/exercises',
-    data: data
+    data: data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -24,10 +28,10 @@ const updateExercise = (data, id) => {
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/exercises/' + id,
-    data: data
-    // headers: {
-    //   Authorization: 'Token token=' + store.user.token
-    // }
+    data: data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -37,10 +41,10 @@ const deleteExercise = (data) => {
   console.log('url is:', url)
   return $.ajax({
     method: 'DELETE',
-    url: config.apiUrl + '/exercises/' + data
-    // headers: {
-    //   Authorization: 'Token token=' + store.user.token
-    // }
+    url: config.apiUrl + '/exercises/' + data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
