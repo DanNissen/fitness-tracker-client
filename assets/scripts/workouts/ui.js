@@ -35,7 +35,7 @@ const createWorkoutError = (response) => {
   console.log('workout not logged properly!!!')
   $('#message-modal').modal('show')
   $('#message-title').text('Uh Oh!!')
-  $('#message-text').text('Something has gone wrong, your workout could not be created. Remember Name, Date, and Color are required. Please try again.')
+  $('#message-text').text('Something has gone wrong, your workout could not be created.')
 }
 
 module.exports = {
