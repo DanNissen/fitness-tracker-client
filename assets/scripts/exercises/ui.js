@@ -1,16 +1,20 @@
 const store = require('../store')
 const showExercisesTemplate = require('../templates/get-exercises.handlebars')
+const dropdownExercisesTemplate = require('../templates/exercise-dropdown.handlebars')
 const exerciseApi = require('./api')
 
 const getExercisesSuccess = (data) => {
   console.log('got exercises', data)
-  if (Object.keys(data).length === 0) {
+  if (data.exercises.length === 0) {
     $('#exercise-container').empty()
     $('#exercise-container').append('<h1>No exercises are in the database. Sign in to create some!</h1>')
   } else {
     const showExercisesHtml = showExercisesTemplate({object: data})
     $('#exercise-container').empty()
     $('#exercise-container').append(showExercisesHtml)
+    const exerciseDropdownHTML = dropdownExercisesTemplate({object: data})
+    $('#exercise-dropdown-container').empty()
+    $('#exercise-dropdown-container').append(exerciseDropdownHTML)
   }
   if (store.signed_in === true) {
     $('.signed-in-visible').css('display', 'block')

@@ -1,0 +1,5 @@
+{{#each object as |exercises|}}
+  {{#each exercises as |exercise|}}
+    <option value={{exercise.id}}>{{exercise.name}}</option>
+  {{/each}}
+{{/each}}
