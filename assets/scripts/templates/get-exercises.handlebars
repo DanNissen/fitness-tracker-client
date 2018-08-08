@@ -5,8 +5,10 @@
       <h2>{{exercise.id}} {{exercise.name}}</h2>
       <p>{{exercise.description}}</p>
       <iframe src="{{exercise.link}}" alt="{{exercise.id}}"></iframe>
-      <button style="display: none;" data-id={{exercise.id}} type="button" class="btn btn-primary btn-block signed-in-visible" data-toggle="modal" data-target="#update-exercise-modal-{{exercise.id}}">Update</button>
-      <button style="display: none;" data-id={{exercise.id}} type="button" class="btn btn-danger btn-block signed-in-visible" data-toggle="modal" data-target="#delete-exercise-modal-{{exercise.id}}">Delete</button>
+      <div>
+      <button style="display: none;" data-id={{exercise.id}} type="button" class="btn btn-primary signed-in-visible exercise-button" data-toggle="modal" data-target="#update-exercise-modal-{{exercise.id}}">Update</button>
+      <button style="display: none;" data-id={{exercise.id}} type="button" class="btn btn-danger signed-in-visible exercise-button" data-toggle="modal" data-target="#delete-exercise-modal-{{exercise.id}}">Delete</button>
+    </div>
     </div>
   {{/each}}
 {{/each}}

@@ -14,6 +14,7 @@ const getExercisesSuccess = (data) => {
   }
   if (store.signed_in === true) {
     $('.signed-in-visible').css('display', 'block')
+    $('.exercise-button').css('display', 'inline')
     $('.signed-out-visible').css('display', 'none')
   }
 }
