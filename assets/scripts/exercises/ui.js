@@ -20,6 +20,9 @@ const getExercisesSuccess = (data) => {
     $('.signed-in-visible').css('display', 'block')
     $('.exercise-button').css('display', 'inline')
     $('.signed-out-visible').css('display', 'none')
+    $('.exercise-button').hide()
+    console.log('USER ID IS', store.user.id)
+    $('.exercise-button-' + store.user.id).show()
   }
 }
 

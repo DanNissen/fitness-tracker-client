@@ -1,7 +1,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Date</th>
+      <!-- <th scope="col">Date</th> -->
       <th scope="col">Exercise</th>
       <th scope="col">Tempo</th>
       <th scope="col">Sets</th>
@@ -12,20 +12,24 @@
     </tr>
   </thead>
   <tbody>
-    {{#each object as |workouts|}}
-      {{#each workouts as |workout|}}
+    {{#each days as |day|}}
+    <th style="color:blue;" align="center" colspan="8">{{@key}}</th>
+    {{log this}}
+    {{log @key}}
+    {{#each day as |workout|}}
+    {{log this}}
         <tr>
-          <th scope="row">{{workout.date}}</th>
+          <!-- <th scope="row">{{workout.date}}</th> -->
               <td>{{workout.exercise.name}}</td>
               <td>{{workout.tempo}}</td>
               <td>{{workout.sets}}</td>
               <td>{{workout.reps}}</td>
               <td>{{workout.rest_in_seconds}}</td>
-              <td><button data-id={{workout.id}} type="button" class="btn btn-primary" data-toggle="modal" data-target="#update-workout-modal-{{workout.id}}">Update</button></td>
-              <td><button data-id={{workout.id}} type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-workout-modal-{{workout.id}}">Delete</button></td>
+              <td><button data-id={{workout.id}} type="button" class="btn btn-primary {{workout.user_id}}" data-toggle="modal" data-target="#update-workout-modal-{{workout.id}}">Update</button></td>
+              <td><button data-id={{workout.id}} type="button" class="btn btn-danger {{workout.user_id}}" data-toggle="modal" data-target="#delete-workout-modal-{{workout.id}}">Delete</button></td>
         </tr>
+        {{/each}}
       {{/each}}
-    {{/each}}
   </tbody>
 </table>
 

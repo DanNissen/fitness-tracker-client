@@ -1,5 +1,6 @@
 const store = require('../store')
 const workoutEvents = require('../workouts/events')
+const exerciseEvents = require('../exercises/events')
 
 const signUpSuccess = (response) => {
   $('#sign-up-form')[0].reset()
@@ -30,6 +31,7 @@ const signInSuccess = (response) => {
   console.log('user is', store.user)
   console.log('token is', store.user.token)
   workoutEvents.onGetWorkouts()
+  exerciseEvents.onGetExercises()
   // $('#message-modal').modal('show')
   // $('#message-title').text('Success!!')
   // $('#message-text').text('Welcome! To get started logging press Log Workout.')
@@ -62,6 +64,7 @@ const changePasswordError = (response) => {
 
 const signOutSuccess = () => {
   console.log('sign out success')
+  store.signed_in = false
   $('.signed-in-visible').css('display', 'none')
   $('.signed-out-visible').css('display', 'block')
   // $('.view-accomplishments').empty()

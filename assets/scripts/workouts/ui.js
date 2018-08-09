@@ -4,11 +4,11 @@ const showWorkoutsTemplate = require('../templates/get-workouts.handlebars')
 
 const getWorkoutsSuccess = (data) => {
   console.log('got workouts', data)
-  if (data.workouts.length === 0) {
+  if (Object.keys(data).length === 0) {
     $('#workouts-container').empty()
     $('#workouts-container').append('<h4>No workouts are in the database. Create some!</h1>')
   } else {
-    const showWorkoutsHtml = showWorkoutsTemplate({object: data})
+    const showWorkoutsHtml = showWorkoutsTemplate({days: data})
     $('#workouts-container').empty()
     $('#workouts-container').append(showWorkoutsHtml)
   }
