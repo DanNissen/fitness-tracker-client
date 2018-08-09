@@ -1,76 +1,74 @@
 {{#each object as |exercises|}}
   {{#each exercises as |exercise|}}
     {{log this}}
-    <div class="col-md-4 col-sm-6">
-      <h2>{{exercise.id}} {{exercise.name}}</h2>
-      <p>{{exercise.description}}</p>
+    <div class="card col-md-4 col-sm-6">
       <iframe src="{{exercise.link}}" alt="{{exercise.id}}"></iframe>
-      <div>
-      <button style="display: none;" data-id={{exercise.id}} type="button" class="btn btn-primary signed-in-visible exercise-button" data-toggle="modal" data-target="#update-exercise-modal-{{exercise.id}}">Update</button>
-      <button style="display: none;" data-id={{exercise.id}} type="button" class="btn btn-danger signed-in-visible exercise-button" data-toggle="modal" data-target="#delete-exercise-modal-{{exercise.id}}">Delete</button>
-    </div>
+      <div class="card-body">
+        <h5 class="card-title">{{exercise.name}}</h5>
+        <p class="card-text">{{exercise.description}}</p>
+        <button style="display: none;" data-id= {{exercise.id}} type="button" class="btn btn-primary signed-in-visible exercise-button" data-toggle="modal" data-target="#update-exercise-modal-{{exercise.id}}">Update</button>
+        <button style="display: none;" data-id= {{exercise.id}} type="button" class="btn btn-danger signed-in-visible exercise-button" data-toggle="modal" data-target="#delete-exercise-modal-{{exercise.id}}">Delete</button>
+      </div>
     </div>
   {{/each}}
 {{/each}}
 
 {{#each object as |exercises|}}
   {{#each exercises as |exercise|}}
-<!-- Update Exercise Modal -->
-<div id="update-exercise-modal-{{exercise.id}}" class="modal update-exercise-modal" role="dialog">
-  <div class="modal-dialog">
+    <!-- Update Exercise Modal -->
+    <div id="update-exercise-modal-{{exercise.id}}" class="modal update-exercise-modal" role="dialog">
+      <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Update Exercise</h4>
-      </div>
-      <div class="modal-body">
-        <!-- update exercise form -->
-          <form id="update-exercise-form-{{exercise.id}}" data-id={{exercise.id}} class="update-exercise-form">
-            <div class="form-group">
-              <label>Exercise Name</label>
-              <input value="{{exercise.name}}"
-              name="exercise[name]" type="text" class="form-control" placeholder="Name">
-            </div>
-            <div class="form-group">
-              <label>Exercise Description</label>
-              <input value="{{exercise.description}}" name="exercise[description]" type="text" class="form-control" placeholder="Description">
-            </div>
-            <div class="form-group">
-              <label>Link to image or video</label>
-              <input value="{{exercise.link}}"
-              name="exercise[link]" type="text" class="form-control" placeholder="Link">
-            </div>
-            <button data-id={{exercise.id}}  type="submit" class="btn btn-primary">Update Exercise</button>
-          </form>
-      </div>
-    </div>
-  </div>
-</div>
-{{/each}}
-{{/each}}
-
-{{#each object as |exercises|}}
-  {{#each exercises as |exercise|}}
-  <!-- delete exercise modal -->
-      <div id="delete-exercise-modal-{{exercise.id}}" class="exercise-modal-handlebars exercise-modal delete-exercise modal delete-exercise-modal-{{exercise.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteExercise" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3 class="modal-title">Are you sure you want to Delete?!</h3>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form data-id={{exercise.id}} class="delete-exercise-form">
-              <div class="modal-body">
-                <!-- delete button -->
-                <button data-id={{exercise.id}} type="submit" class="btn btn-primary">Yes, delete</button>
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Update Exercise</h4>
+          </div>
+          <div class="modal-body">
+            <!-- update exercise form -->
+            <form id="update-exercise-form-{{exercise.id}}" data-id= {{exercise.id}} class="update-exercise-form">
+              <div class="form-group">
+                <label>Exercise Name</label>
+                <input value="{{exercise.name}}" name="exercise[name]" type="text" class="form-control" placeholder="Name">
               </div>
+              <div class="form-group">
+                <label>Exercise Description</label>
+                <input value="{{exercise.description}}" name="exercise[description]" type="text" class="form-control" placeholder="Description">
+              </div>
+              <div class="form-group">
+                <label>Link to image or video</label>
+                <input value="{{exercise.link}}" name="exercise[link]" type="text" class="form-control" placeholder="Link">
+              </div>
+              <button data-id= {{exercise.id}} type="submit" class="btn btn-primary">Update Exercise</button>
             </form>
           </div>
         </div>
       </div>
+    </div>
   {{/each}}
+{{/each}}
+
+{{#each object as |exercises|}}
+  {{#each exercises as |exercise|}}
+    <!-- delete exercise modal -->
+    <div id="delete-exercise-modal-{{exercise.id}}" class="exercise-modal-handlebars exercise-modal delete-exercise modal delete-exercise-modal-{{exercise.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteExercise" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Are you sure you want to Delete?!</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+          </div>
+          <form data-id= {{exercise.id}} class="delete-exercise-form">
+            <div class="modal-body">
+              <!-- delete button -->
+              <button data-id= {{exercise.id}} type="submit" class="btn btn-primary">Yes, delete</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   {{/each}}
+{{/each}}
