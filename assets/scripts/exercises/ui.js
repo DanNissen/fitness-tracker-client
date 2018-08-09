@@ -7,7 +7,7 @@ const getExercisesSuccess = (data) => {
   console.log('got exercises', data)
   if (data.exercises.length === 0) {
     $('#exercise-container').empty()
-    $('#exercise-container').append('<h1>No exercises are in the database. Sign in to create some!</h1>')
+    $('#exercise-container').append('<h4>No exercises are in the database. Create some!</h4>')
   } else {
     const showExercisesHtml = showExercisesTemplate({object: data})
     $('#exercise-container').empty()
