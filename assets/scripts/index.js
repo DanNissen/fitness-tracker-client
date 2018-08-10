@@ -21,7 +21,7 @@ $(() => {
   $('.workouts-container').on('submit', '.delete-workout-form', workoutEvents.onDeleteWorkout)
   $('.exercise-container').on('submit', '.delete-exercise-form', exerciseEvents.onDeleteExercise)
   $('.auth-modal').on('hidden.bs.modal', authEvents.onResetAuthForms)
-  $('.exercise-modal').on('hidden.bs.modal', exerciseEvents.onResetExerciseForms)
+  // $('.exercise-modal').on('hidden.bs.modal', exerciseEvents.onResetExerciseForms)
   // $('.workout-modal').on('hidden.bs.modal', workoutEvents.onResetWorkoutForms)
   $('.workouts-container').on('hidden.bs.modal', '.workout-modal', workoutEvents.onResetWorkoutForms)
 })
