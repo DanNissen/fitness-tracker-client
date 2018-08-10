@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Fitness Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+        <a class="navbar-brand" href="index.html">Fitness Tracker</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a class="btn btn-default signed-out-visible" data-toggle="modal" data-target="#sign-up-modal">Sign Up</a>
+          </li>
+          <li>
+            <a class="btn btn-default signed-out-visible" data-toggle="modal" data-target="#sign-in-modal">Sign In</a>
+          </li>
+          <li>
+            <a class="btn btn-default signed-in-visible" style="display: none;" data-toggle="modal" data-target="#change-pw-modal">Change Password</a>
+          </li>
+          <li>
+            <a class="btn btn-default signed-in-visible" style="display: none;" id="sign-out">Sign Out</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </nav>
+
+  <!-- Header Carousel -->
+  <header id="myCarousel" class="carousel slide signed-out-visible">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <div class="fill" style="background-image:url('https://user-images.githubusercontent.com/39223031/43841234-a968b0f4-9af0-11e8-8cff-30e87e6a80dc.JPG');"></div>
+        <div class="carousel-caption">
+          <h2>Yes!</h2>
+        </div>
+      </div>
+      <div class="item">
+        <div class="fill" style="background-image:url('https://user-images.githubusercontent.com/39223031/43841217-9f7b8c06-9af0-11e8-97da-f08c9a084326.JPG');"></div>
+        <div class="carousel-caption">
+          <h2>Feeling Strong</h2>
+        </div>
+      </div>
+      <div class="item">
+        <div class="fill" style="background-image:url('https://user-images.githubusercontent.com/39223031/43841213-9e3d5914-9af0-11e8-8efa-73ac2c854b7d.jpg');"></div>
+        <div class="carousel-caption">
+          <h2>#Winning</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+  </header>
+  <!-- Signed in user info -->
+  <!-- Page Content -->
+
+  <div class="container">
+
+    <!-- About Section -->
+    <div id="about" class="row signed-out-visible">
+      <div class="col-lg-12">
+        <h2 class="page-header">About</h2>
+      </div>
+      <div class="col-md-6">
+        <p>If you know Joey, he likes to keep things straight and to the point..<br> <br> He’s been in the fitness game over 10 years and has serviced just north of 20,000 sessions. He discovered his passion for human movement when his oldest sister was diagnosed
+          with multiple-sclerosis and lost her ability to move.<br><br> Who does he train? Joey has worked with some of the most elite of athletes of our time all the way down to the daily joe. Because his teaching is movement, any client is welcome. He strongly
+          believes in one philosophy-move well, move often, move now.
+          <br><br></p>
+        <ul>
+          <li><strong>Qualifications:</strong>
+          </li>
+          <li>B.S. Health and Exercise Science</li>
+          <li>American College of Sports Medicine Certified Personal Trainer</li>
+          <li>Functional Movement Systems Level 2</li>
+          <li>National Academy of Sports Medicine Certified Personal Trainer</li>
+          <li>National Academy of Sports Medicine Corrective Exercise Specialist</li>
+          <li>Russian Kettlebell Certification Level 1</li>
+          <li>TRX Suspension Trainer </li>
+          <li>USA Weightlifting Level 1 Sport Performance Coach</li>
+        </ul>
+        <br>
+        <br>
+        <p>Join Joey is your quest to becoming your best.<br> This app is the first step towards building out the best exercise library. Easily upload different exercises with videos, and use those exercises to log workouts. </p>
+      </div>
+      <div class="col-md-6">
+        <img class="img-responsive" src="https://user-images.githubusercontent.com/39223031/43936023-ad9b03cc-9c24-11e8-99ce-8cf95bdd0ee5.jpg" alt="Joey running a race">
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <div class="container signed-in-visible" style="display: none;">
+      <div class="col-lg-12">
+        <h2 class="page-header">Welcome!</h2>
+      </div>
+      <div id="user-container" class="row">
+        <p>
+          Thanks for using this site! Go ahead and get started by creating an exercise, or logging a workout below. It's very easy to do, and will help you reach your goals!
+        </p>
+      </div>
+    </div>
+    <div class="container signed-in-visible" style="display: none;">
+      <div class="col-lg-12">
+        <h2 class="page-header">Workouts</h2>
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#create-workout-modal">Log Workout</button>
+      </div>
+      <div id="workouts-container" class="workouts-container row">
+
+      </div>
+    </div>
+    <!-- Portfolio Section -->
+    <div class="col-lg-12">
+      <h2 class="page-header">Exercise Library</h2>
+      <p>Note: Exercises can only be deleted if they are not used in any workouts.</p>
+      <button style="display: none;" type="button" class="btn btn-primary btn-block signed-in-visible" data-toggle="modal" data-target="#create-exercise-modal">Create Exercise</button>
+    </div>
+    <br>
+    <div id="exercise-container" class="exercise-container row">
+
+    </div>
+    <hr>
+    <!-- /.row -->
+
+    <!-- Call to Action Section -->
+    <div class="well signed-out-visible">
+      <div class="row">
+        <div class="col-md-8">
+          <p>Join now to get started building an amazing exercise library, and to start logging your workouts! Together we are better!</p>
+        </div>
+        <div class="col-md-4">
+          <a class="btn btn-lg btn-default btn-block" data-toggle="modal" data-target="#sign-up-modal">Sign Up Here!!</a>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright &copy; Fitness Tracker 2018</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Sign Up Modal -->
+  <div id="sign-up-modal" class="modal auth-modal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sign Up Here!</h4>
+        </div>
+        <div class="modal-body">
+          <form id="sign-up-form">
+            <div class="form-group">
+              <label for="signUpInputEmail1">Email address</label>
+              <input name="credentials[email]" type="email" class="form-control" id="signUpInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="signUpInputPassword1">Password</label>
+              <input name="credentials[password]" type="password" class="form-control" id="signUpInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="signUpInputPassword2">Confirm Password</label>
+              <input name="credentials[password_confirmation]" type="password" class="form-control" id="signUpInputPassword2" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sign In Modal -->
+  <div id="sign-in-modal" class="modal auth-modal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sign In</h4>
+        </div>
+        <div class="modal-body">
+          <!-- sign in form -->
+          <form id="sign-in-form">
+            <div class="form-group">
+              <label for="signInInputEmail1">Email address</label>
+              <input name="credentials[email]" type="email" class="form-control" id="signInInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="signInInputPassword1">Password</label>
+              <input name="credentials[password]" type="password" class="form-control" id="signInInputPassword1" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Sign In</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Change PW Modal -->
+  <div id="change-pw-modal" class="modal auth-modal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Change Password</h4>
+        </div>
+        <div class="modal-body">
+          <!-- sign in form -->
+          <form id="change-password-form">
+            <div class="form-group">
+              <label for="changePasswordInputPassword1">Old Password</label>
+              <input name="passwords[old]" type="password" class="form-control" id="changePasswordInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="changePasswordInputPassword2">New Password</label>
+              <input name="passwords[new]" type="password" class="form-control" id="changePasswordInputPassword2" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Change Password</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- messaging modal  -->
+  <div id="message-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="message-title" class="modal-title"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+          <p id="message-text"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Workout Modal -->
+  <div id="create-workout-modal" class="modal workout-modal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Log Workout</h4>
+        </div>
+        <div class="modal-body">
+          <!-- create workout form -->
+          <form id="create-workout-form">
+            <div class="form-group">
+              <label>Date Accomplished</label>
+              <input name="workout[date]" type="date" class="form-control" id="workout-dateInput">
+            </div>
+            <div class="form-group">
+              <label>Select Exercise</label>
+              <select name="workout[exercise_id]" class="form-control" id="exercise-dropdown-container">
+                </select>
+            </div>
+            <div class="form-group">
+              <label>Tempo</label>
+              <input name="workout[tempo]" type="text" class="form-control" placeholder="Tempo">
+            </div>
+            <div class="form-group">
+              <label>Sets</label>
+              <input name="workout[sets]" type="text" class="form-control" placeholder="How many sets?">
+            </div>
+            <div class="form-group">
+              <label>Reps</label>
+              <input name="workout[reps]" type="text" class="form-control" placeholder="How many Reps per set?">
+            </div>
+            <div class="form-group">
+              <label>Rest in Seconds</label>
+              <input type="text" name="workout[rest_in_seconds]" class="form-control" placeholder="How many seconds of rest?">
+            </div>
+            <button type="submit" class="btn btn-primary">Log Workout</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Exercise Modal -->
+  <div id="create-exercise-modal" class="modal exercise-modal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Log Exercise</h4>
+        </div>
+        <div class="modal-body">
+          <!-- create exercise form -->
+          <form id="create-exercise-form">
+            <div class="form-group">
+              <label>Exercise Name</label>
+              <input name="exercise[name]" type="text" class="form-control" placeholder="Name">
+            </div>
+            <div class="form-group">
+              <label>Exercise Description</label>
+              <input name="exercise[description]" type="text" class="form-control" placeholder="Description">
+            </div>
+            <div class="form-group">
+              <label>Link to image or video</label>
+              <p>
+                Follow these steps to grab the link for your exercise video:
+                <ol>
+                  <li>Find the video on YouTube</li>
+                  <li>Click share, and then click embed</li>
+                  <li>In the next pop up, copy the url in src. src="https://copy_me_.com"</li>
+                  <li>Paste link in form below</li>
+                </ol>
+              </p>
+              <input name="exercise[link]" type="text" class="form-control" placeholder="Link">
+            </div>
+            <button type="submit" class="btn btn-primary">Log Exercise</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
