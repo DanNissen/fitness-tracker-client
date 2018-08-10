@@ -1,6 +1,5 @@
 {{#each object as |exercises|}}
   {{#each exercises as |exercise|}}
-    {{log this}}
     <div class="card col-md-4 col-sm-6">
       <iframe src="{{exercise.link}}" alt="{{exercise.name}}"></iframe>
       <div class="card-body">
@@ -16,7 +15,7 @@
 {{#each object as |exercises|}}
   {{#each exercises as |exercise|}}
     <!-- Update Exercise Modal -->
-    <div id="update-exercise-modal-{{exercise.id}}" class="modal update-exercise-modal" role="dialog">
+    <div id="update-exercise-modal-{{exercise.id}}" class="modal update-exercise-modal exercise-modal" role="dialog">
       <div class="modal-dialog">
 
         <!-- Modal content-->

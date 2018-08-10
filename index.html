@@ -123,7 +123,9 @@
         <h2 class="page-header">Welcome!</h2>
       </div>
       <div id="user-container" class="row">
-
+        <p>
+          Thanks for using this site! Go ahead and get started by creating an exercise, or logging a workout below. It's very easy to do, and will help you reach your goals!
+        </p>
       </div>
     </div>
     <div class="container signed-in-visible" style="display: none;">
@@ -138,10 +140,12 @@
     <!-- Portfolio Section -->
     <div class="col-lg-12">
       <h2 class="page-header">Exercise Library</h2>
+      <p>Note: Exercises can only be deleted if they are note used in any workouts.</p>
       <button style="display: none;" type="button" class="btn btn-primary btn-block signed-in-visible" data-toggle="modal" data-target="#create-exercise-modal">Create Exercise</button>
     </div>
     <br>
     <div id="exercise-container" class="exercise-container row">
+
     </div>
     <hr>
     <!-- /.row -->
@@ -173,7 +177,7 @@
   <!-- /.container -->
 
   <!-- Sign Up Modal -->
-  <div id="sign-up-modal" class="modal " role="dialog">
+  <div id="sign-up-modal" class="modal auth-modal" role="dialog">
     <div class="modal-dialog">
 
       <!-- Modal content-->
@@ -204,7 +208,7 @@
   </div>
 
   <!-- Sign In Modal -->
-  <div id="sign-in-modal" class="modal " role="dialog">
+  <div id="sign-in-modal" class="modal auth-modal" role="dialog">
     <div class="modal-dialog">
 
       <!-- Modal content-->
@@ -232,7 +236,7 @@
   </div>
 
   <!-- Change PW Modal -->
-  <div id="change-pw-modal" class="modal " role="dialog">
+  <div id="change-pw-modal" class="modal auth-modal" role="dialog">
     <div class="modal-dialog">
 
       <!-- Modal content-->
@@ -277,7 +281,7 @@
   </div>
 
   <!-- Create Workout Modal -->
-  <div id="create-workout-modal" class="modal " role="dialog">
+  <div id="create-workout-modal" class="modal workout-modal" role="dialog">
     <div class="modal-dialog">
 
       <!-- Modal content-->
@@ -322,7 +326,7 @@
   </div>
 
   <!-- Create Exercise Modal -->
-  <div id="create-exercise-modal" class="modal " role="dialog">
+  <div id="create-exercise-modal" class="modal exercise-modal" role="dialog">
     <div class="modal-dialog">
 
       <!-- Modal content-->

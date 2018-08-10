@@ -14,10 +14,9 @@
   <tbody>
     {{#each days as |day|}}
     <th style="color:blue;" align="center" colspan="8">{{@key}}</th>
-    {{log this}}
-    {{log @key}}
+
     {{#each day as |workout|}}
-    {{log this}}
+
         <tr>
           <!-- <th scope="row">{{workout.date}}</th> -->
               <td>{{workout.exercise.name}}</td>
@@ -33,10 +32,10 @@
   </tbody>
 </table>
 
-{{#each object as |workouts|}}
-  {{#each workouts as |workout|}}
+{{#each days as |day|}}
+  {{#each day as |workout|}}
 <!-- Update Workout Modal -->
-<div id="update-workout-modal-{{workout.id}}" class="modal update-workout-modal" role="dialog">
+<div id="update-workout-modal-{{workout.id}}" class="modal update-workout-modal workout-modal" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -55,9 +54,7 @@
             <div class="form-group">
               <label>Select Exercise</label>
               <select value="{{workout.exercise_id}}" name="workout[exercise_id]" class="form-control">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
+                <option value="{{workout.exercise_id}}">{{workout.exercise.name}}</option>
               </select>
             </div>
             <div class="form-group">
@@ -85,8 +82,8 @@
 {{/each}}
 {{/each}}
 
-{{#each object as |workouts|}}
-  {{#each workouts as |workout|}}
+{{#each days as |day|}}
+  {{#each day as |workout|}}
   <!-- delete workout modal -->
       <div id="delete-workout-modal-{{workout.id}}" class="workout-modal-handlebars workout-modal delete-workout modal delete-workout-modal-{{workout.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteWorkout" aria-hidden="true">
         <div class="modal-dialog modal-lg">
