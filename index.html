@@ -98,17 +98,25 @@
         <h2 class="page-header">About</h2>
       </div>
       <div class="col-md-6">
-        <p>This app is my first step towards building out the best exercise library. Easily upload different exercises with videos, and use those exercises to log workouts. </p>
+        <p>If you know Joey, he likes to keep things straight and to the point..<br> <br> He’s been in the fitness game over 10 years and has serviced just north of 20,000 sessions. He discovered his passion for human movement when his oldest sister was diagnosed
+          with multiple-sclerosis and lost her ability to move.<br><br> Who does he train? Joey has worked with some of the most elite of athletes of our time all the way down to the daily joe. Because his teaching is movement, any client is welcome. He strongly
+          believes in one philosophy-move well, move often, move now.
+          <br><br></p>
         <ul>
-          <li><strong>Bootstrap v3.2.0</strong>
+          <li><strong>Qualifications:</strong>
           </li>
-          <li>jQuery v1.11.0</li>
-          <li>Font Awesome v4.1.0</li>
-          <li>Working PHP contact form with validation</li>
-          <li>Unstyled page elements for easy customization</li>
-          <li>17 HTML pages</li>
+          <li>B.S. Health and Exercise Science</li>
+          <li>American College of Sports Medicine Certified Personal Trainer</li>
+          <li>Functional Movement Systems Level 2</li>
+          <li>National Academy of Sports Medicine Certified Personal Trainer</li>
+          <li>National Academy of Sports Medicine Corrective Exercise Specialist</li>
+          <li>Russian Kettlebell Certification Level 1</li>
+          <li>TRX Suspension Trainer </li>
+          <li>USA Weightlifting Level 1 Sport Performance Coach</li>
         </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+        <br>
+        <br>
+        <p>Join Joey is your quest to becoming your best.<br> This app is the first step towards building out the best exercise library. Easily upload different exercises with videos, and use those exercises to log workouts. </p>
       </div>
       <div class="col-md-6">
         <img class="img-responsive" src="https://user-images.githubusercontent.com/39223031/43936023-ad9b03cc-9c24-11e8-99ce-8cf95bdd0ee5.jpg" alt="Joey running a race">
@@ -131,7 +139,7 @@
     <div class="container signed-in-visible" style="display: none;">
       <div class="col-lg-12">
         <h2 class="page-header">Workouts</h2>
-          <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#create-workout-modal">Log Workout</button>
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#create-workout-modal">Log Workout</button>
       </div>
       <div id="workouts-container" class="workouts-container row">
 
@@ -292,34 +300,34 @@
         </div>
         <div class="modal-body">
           <!-- create workout form -->
-            <form id="create-workout-form">
-              <div class="form-group">
-                <label>Date Accomplished</label>
-                <input name="workout[date]" type="date" class="form-control" id="workout-dateInput">
-              </div>
-              <div class="form-group">
-                <label>Select Exercise</label>
-                <select name="workout[exercise_id]" class="form-control" id="exercise-dropdown-container">
+          <form id="create-workout-form">
+            <div class="form-group">
+              <label>Date Accomplished</label>
+              <input name="workout[date]" type="date" class="form-control" id="workout-dateInput">
+            </div>
+            <div class="form-group">
+              <label>Select Exercise</label>
+              <select name="workout[exercise_id]" class="form-control" id="exercise-dropdown-container">
                 </select>
-              </div>
-              <div class="form-group">
-                <label>Tempo</label>
-                <input name="workout[tempo]" type="text" class="form-control" placeholder="Tempo">
-              </div>
-              <div class="form-group">
-                <label>Sets</label>
-                <input name="workout[sets]" type="text" class="form-control" placeholder="How many sets?">
-              </div>
-              <div class="form-group">
-                <label>Reps</label>
-                <input name="workout[reps]" type="text" class="form-control" placeholder="How many Reps per set?">
-              </div>
-              <div class="form-group">
-                <label>Rest in Seconds</label>
-                <input type="text" name="workout[rest_in_seconds]" class="form-control" placeholder="How many seconds of rest?">
-              </div>
-              <button type="submit" class="btn btn-primary">Log Workout</button>
-            </form>
+            </div>
+            <div class="form-group">
+              <label>Tempo</label>
+              <input name="workout[tempo]" type="text" class="form-control" placeholder="Tempo">
+            </div>
+            <div class="form-group">
+              <label>Sets</label>
+              <input name="workout[sets]" type="text" class="form-control" placeholder="How many sets?">
+            </div>
+            <div class="form-group">
+              <label>Reps</label>
+              <input name="workout[reps]" type="text" class="form-control" placeholder="How many Reps per set?">
+            </div>
+            <div class="form-group">
+              <label>Rest in Seconds</label>
+              <input type="text" name="workout[rest_in_seconds]" class="form-control" placeholder="How many seconds of rest?">
+            </div>
+            <button type="submit" class="btn btn-primary">Log Workout</button>
+          </form>
         </div>
       </div>
     </div>
@@ -337,30 +345,30 @@
         </div>
         <div class="modal-body">
           <!-- create exercise form -->
-            <form id="create-exercise-form">
-              <div class="form-group">
-                <label>Exercise Name</label>
-                <input name="exercise[name]" type="text" class="form-control" placeholder="Name">
-              </div>
-              <div class="form-group">
-                <label>Exercise Description</label>
-                <input name="exercise[description]" type="text" class="form-control" placeholder="Description">
-              </div>
-              <div class="form-group">
-                <label>Link to image or video</label>
-                  <p>
-                    Follow these steps to grab the link for your exercise video:
-                    <ol>
-                      <li>Find the video on YouTube</li>
-                      <li>Click share, and then click embed</li>
-                      <li>In the next pop up, copy the url in src. src="https://copy_me_.com"</li>
-                      <li>Paste link in form below</li>
-                    </ol>
-                  </p>
-                <input name="exercise[link]" type="text" class="form-control" placeholder="Link">
-              </div>
-              <button type="submit" class="btn btn-primary">Log Exercise</button>
-            </form>
+          <form id="create-exercise-form">
+            <div class="form-group">
+              <label>Exercise Name</label>
+              <input name="exercise[name]" type="text" class="form-control" placeholder="Name">
+            </div>
+            <div class="form-group">
+              <label>Exercise Description</label>
+              <input name="exercise[description]" type="text" class="form-control" placeholder="Description">
+            </div>
+            <div class="form-group">
+              <label>Link to image or video</label>
+              <p>
+                Follow these steps to grab the link for your exercise video:
+                <ol>
+                  <li>Find the video on YouTube</li>
+                  <li>Click share, and then click embed</li>
+                  <li>In the next pop up, copy the url in src. src="https://copy_me_.com"</li>
+                  <li>Paste link in form below</li>
+                </ol>
+              </p>
+              <input name="exercise[link]" type="text" class="form-control" placeholder="Link">
+            </div>
+            <button type="submit" class="btn btn-primary">Log Exercise</button>
+          </form>
         </div>
       </div>
     </div>
