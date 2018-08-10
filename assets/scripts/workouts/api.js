@@ -2,7 +2,7 @@ const config = require('../config')
 const store = require('../store')
 
 const getWorkouts = () => {
-  console.log('Getting workouts')
+  // console.log('Getting workouts')
   return $.ajax({
     method: 'Get',
     url: config.apiUrl + '/workouts',
@@ -13,8 +13,8 @@ const getWorkouts = () => {
 }
 
 const createWorkout = (data) => {
-  console.log('data passed to api is', data)
-  console.log('user is', store.user.email)
+  // console.log('data passed to api is', data)
+  // console.log('user is', store.user.email)
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/workouts',
@@ -39,9 +39,9 @@ const updateWorkout = (data, id) => {
 }
 
 const deleteWorkout = (data) => {
-  console.log('id is:', data)
+  // console.log('id is:', data)
   const url = config.apiUrl + '/workouts/' + data
-  console.log('url is:', url)
+  // console.log('url is:', url)
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/workouts/' + data,

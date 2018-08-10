@@ -2,7 +2,7 @@ const config = require('../config')
 const store = require('../store')
 
 const getExercises = () => {
-  console.log('Getting exercises')
+  // console.log('Getting exercises')
   return $.ajax({
     method: 'Get',
     url: config.apiUrl + '/exercises'
@@ -10,8 +10,8 @@ const getExercises = () => {
 }
 
 const createExercise = (data) => {
-  console.log('data passed to api is', data)
-  console.log('user is', store.user.email)
+  // console.log('data passed to api is', data)
+  // console.log('user is', store.user.email)
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/exercises',
@@ -24,7 +24,7 @@ const createExercise = (data) => {
 
 const updateExercise = (data, id) => {
   const url = config.apiUrl + '/exercises/' + id
-  console.log('url is:', url)
+  // console.log('url is:', url)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/exercises/' + id,
@@ -36,9 +36,9 @@ const updateExercise = (data, id) => {
 }
 
 const deleteExercise = (data) => {
-  console.log('id is:', data)
+  // console.log('id is:', data)
   const url = config.apiUrl + '/exercises/' + data
-  console.log('url is:', url)
+  // console.log('url is:', url)
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/exercises/' + data,
